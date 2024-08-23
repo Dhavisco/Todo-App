@@ -5,13 +5,16 @@ type TodoContextObj = {
     items: Todo[]; 
     addTodo: (text: string) => void; 
     removeTodo: (id: string) => void;
+    editTodo: (id: string, newText: string) => void; 
+
 }
 
 export const TodosContext =  
 React.createContext<TodoContextObj>({
     items: [],
     addTodo: () => {},
-    removeTodo: () => {}
+    removeTodo: () => {},
+    editTodo: () => {}
 });
 
 const TodosContextProvider: React.FC<{ 
@@ -35,11 +38,18 @@ setTodos((prevTodos) => {
 })
   }
 
+  const editTodoHandler = (todoId: string, newTodoText: string) => {
+    setTodos((prevTodos) => prevTodos.map((todo)=> todo.id === todoId ? {...todo, text:newTodoText} : todo 
+  )
+);
+  };
+
 
   const contextValue: TodoContextObj = {
     items: todos,
     addTodo: addTodoHandler,
-    removeTodo: removeTodoHandler
+    removeTodo: removeTodoHandler,
+    editTodo:editTodoHandler
   }
 
     return <TodosContext.Provider 

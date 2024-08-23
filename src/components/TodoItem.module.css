@@ -5,3 +5,13 @@
   background-color: #f7f5ef;
   cursor: pointer;
 }
+
+.delete{
+  float:right;
+  background-color: red;
+  border: none;
+  padding: 0.3rem 0.5rem;
+  font-size: small;
+  border-radius: 0.3rem;
+  color: white;
+}

@@ -18,6 +18,7 @@ const Todos : React.FC = () => {
        {todosCtx.items.map((item) => (
         <TodoItem 
           key={item.id} 
+          id={item.id}
           text={item.text} 
           onRemoveTodo={todosCtx.removeTodo.bind(null, item.id)}/>
        ))}
