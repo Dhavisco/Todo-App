@@ -7,6 +7,11 @@ const Todos : React.FC = () => {
 
     const todosCtx = useContext(TodosContext);
 
+     // Introduce an error for testing
+  // if (todosCtx.items.length === 0) {
+  //   throw new Error('No todos available!');
+  // }
+
 
   return (
     <ul className={classes.todos}>

@@ -1,9 +1,6 @@
 import { useRef, useContext} from "react";
 import { TodosContext } from "../store/todos-context";
-
 import classes from "./NewTodo.module.css"
-
-
 const NewTodo: React.FC = () => {
     
   const todosCtx = useContext(TodosContext);
@@ -21,9 +18,6 @@ const NewTodo: React.FC = () => {
 
         todosCtx.addTodo(enteredText);
     };
-
-
-
   return (
     <form onSubmit={submitHandler} className={classes.form}>
         <label htmlFor="text">Todo text</label>

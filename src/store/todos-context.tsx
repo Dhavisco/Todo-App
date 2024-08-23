@@ -7,13 +7,17 @@ type TodoContextObj = {
     removeTodo: (id: string) => void;
 }
 
-export const TodosContext =  React.createContext<TodoContextObj>({
+export const TodosContext =  
+React.createContext<TodoContextObj>({
     items: [],
     addTodo: () => {},
     removeTodo: () => {}
 });
 
-const TodosContextProvider: React.FC<{ children: React.ReactNode }> = (props) => {
+const TodosContextProvider: React.FC<{ 
+  children: React.ReactNode 
+
+}> = (props) => {
 
     const [todos, setTodos] = useState<Todo[]>([]);
 
@@ -26,9 +30,9 @@ const TodosContextProvider: React.FC<{ children: React.ReactNode }> = (props) =>
   }
 
   const removeTodoHandler = (todoId: string) => {
-      setTodos((prevTodos) => {
-        return prevTodos.filter(todo => todo.id !== todoId)
-      })
+setTodos((prevTodos) => {
+  return prevTodos.filter(todo => todo.id !== todoId)
+})
   }
 
 
@@ -38,7 +42,10 @@ const TodosContextProvider: React.FC<{ children: React.ReactNode }> = (props) =>
     removeTodo: removeTodoHandler
   }
 
-    return <TodosContext.Provider value={contextValue}>{props.children}</TodosContext.Provider>
+    return <TodosContext.Provider 
+    value={contextValue}>
+      {props.children}
+      </TodosContext.Provider>
 };
 
 export default TodosContextProvider;
